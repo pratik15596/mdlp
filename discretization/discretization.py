@@ -1,14 +1,14 @@
 # Title          : discretization.py
 # Author         : Henry Lin <hlin117@gmail.com>
 # License        : BSD 3 clause
-#==============================================================================
+# ==============================================================================
 
 from __future__ import division
 import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.base import TransformerMixin
 from sklearn.utils import check_array, check_X_y, column_or_1d, check_random_state
-from _mdlp import MDLPDiscretize
+from ._mdlp import MDLPDiscretize
 
 
 class MDLP(BaseEstimator, TransformerMixin):
@@ -82,16 +82,18 @@ class MDLP(BaseEstimator, TransformerMixin):
     and `b` can be `float("inf")`.
     """
 
-    def __init__(self, continuous_features=None, min_depth=0, shuffle=True,
+    def __init__(self, categorical_features=None, min_depth=0, shuffle=True,
                  random_state=None):
         # Parameters
-        self.continous_features = continuous_features
+        self.categorical_features = categorical_features
+        self.continous_features = None
         self.min_depth = min_depth
         self.random_state = random_state
         self.shuffle = shuffle
 
         # Attributes
-        self.continuous_features_ = continuous_features
+        self.continuous_features_ = None
+        self.categorical_features_ = None
         self.cut_points_ = None
         self.dimensions_ = None
 
@@ -129,6 +131,13 @@ class MDLP(BaseEstimator, TransformerMixin):
             y = y[perm]
 
         if self.dimensions_ == 2:
+            if self.categorical_features is not None:
+                self.continuous_features_ = []
+                for j in range(X.shape[1]):
+                    if j in self.categorical_features:
+                        continue
+                    self.continuous_features_.append(j)
+
             if self.continuous_features_ is None:
                 self.continuous_features_ = np.arange(X.shape[1])
 

@@ -19,6 +19,7 @@ def MDLPDiscretize(col, y, int min_depth):
 
     order = np.argsort(col)
     col = col[order]
+    col = np.asarray(col, np.float64)
     y = y[order]
 
     cdef stdset[FLOAT] cut_points = stdset[FLOAT]()
