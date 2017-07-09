@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.base import TransformerMixin
 from sklearn.utils import check_array, check_X_y, column_or_1d, check_random_state
+import pyximport; pyximport.install()
 from ._mdlp import MDLPDiscretize
 
 

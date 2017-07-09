@@ -3,6 +3,9 @@
 This is an implementation of Usama Fayyad's entropy based
 expert binning method.
 
+*Fayyad, Usama M.; Irani, Keki B. (1993) "Multi-Interval Discretization of Continuous-Valued Attributes for Classification Learning" , Proceedings of the International Joint Conference on Uncertainty in AI (Q334 .I571 1993), pp. 1022-1027
+[https://trs.jpl.nasa.gov/handle/2014/35171](https://trs.jpl.nasa.gov/handle/2014/35171)
+
 Please read the original paper
 <a href="http://sci2s.ugr.es/keel/pdf/algorithm/congreso/fayyad1993.pdf">here</a>
 for more information.
