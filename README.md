@@ -26,14 +26,11 @@ This code was built using Cython, so you have to run the makefile
 in the directory.
 
 ```
-$ make
+$ pip3 install mdlp
 ```
 
-Afterwards, assuming that `discretization.py` and `_mdlp.so` are in the
-same directory, you can import the MDLP class.
-
 ```
->>> from discretization import MDLP
+>>> from mdlp import MDLP
 >>> from sklearn.datasets import load_iris
 >>> iris = load_iris()
 >>> X = iris.data
