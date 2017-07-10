@@ -1,1 +1,1 @@
-from .discretization import MDLP
+from .mdlp import MDLP

@@ -4,11 +4,10 @@ import numpy
 from setuptools import find_packages
 from distutils.extension import Extension
 
-
-extensions = [Extension("_mdlp", ["mdlp/_mdlp.pyx"], language='c++')]
+extensions = [Extension("mdlp.cmdlp", ["mdlp/*.pyx"], language='c++')]
 setup(name='mdlp',
       packages=find_packages(),
-      version='0.31',
+      version='0.32',
       description='MDLP',
       long_description='MDLP Discretization Algorithm',
       classifiers=[
